@@ -1,0 +1,22 @@
+name: Maven Build
+
+on:
+  push:
+    branches:
+      - main  # Replace 'main' with your default branch name
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'  # Adjust the Java version as needed
+
+    - name: Build with Maven
+      run: mvn clean install
